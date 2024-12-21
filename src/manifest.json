@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Privacy Guardian",
+  "version": "1.0.0",
+  "description": "A comprehensive privacy protection browser extension that blocks trackers, secures cookies, and prevents fingerprinting",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "cookies",
+    "privacy",
+    "notifications",
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
